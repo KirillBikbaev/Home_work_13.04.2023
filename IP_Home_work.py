@@ -1,7 +1,10 @@
 ip = input('Введите IP-адрес: ')
 ip_address = ip.split('.')
-result = all(part.isdigit() and 0 <= int(part) <= 255 for part in ip_address) # проверка на правильность всех частей IP-адреса с помощью all()
-if result:
-    print('Все числа со значением от 0 до 255')
+if len(ip_address) != 4:
+    print('Error')
 else:
-    print('Хотя бы одно число не со значением от 0 до 255')
+    result = all(part.isdigit() and 0 <= int(part) <= 255 for part in ip_address) # проверка на правильность всех частей IP-адреса с помощью all()
+    if result:
+        print('Все числа со значением от 0 до 255')
+    else:
+        print('Хотя бы одно число не со значением от 0 до 255')
